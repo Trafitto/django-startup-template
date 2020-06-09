@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  project-name:
+    container_name: project-name
+    image: yourname/project-name
+    build: ./
+    #command: python manage.py runserver 0.0.0.0:8000
+    command: tail -f /dev/null
+    deploy:
+      replicas: 1
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - project-name-db
+
+  project-name-db:
+    container_name: project-name-db
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
