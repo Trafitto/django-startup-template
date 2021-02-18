@@ -42,7 +42,7 @@ Create a Django app
 Creating files with Docker may need to add permissions to the current user,
 So in the project root:
 
-`sudo chown -R $USER `
+`sudo chown -R $USER .`
 
 Change Django settings to work with Postgres
 
